@@ -3,94 +3,679 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Biodata Wahdan Sopwan Ramdhany</title>
+    <title>UTS Logika Algoritma - Wahdan Sopwan Ramdhany</title>
 
     <!-- Bootstrap CDN -->
-    <link 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
-        rel="stylesheet"
-    >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #17191D;
+            --dark: #22252B;
+            --gray: #343942;
+            --silver: #B8BEC8;
+            --light: #F1F2F4;
+            --white: #FFFFFF;
+            --accent: #68788F;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--light);
+            color: var(--dark);
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: var(--white);
+            padding: 16px 0;
+            border-bottom: 1px solid #E2E4E8;
+        }
+
+        .navbar-brand {
+            color: var(--black);
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .navbar-brand:hover {
+            color: var(--accent);
+        }
+
+        .nav-info {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 650;
+        }
+
+        /* HEADER */
+        .hero {
+            background: linear-gradient(135deg, #202329, #353B45, #252A32);
+            padding: 65px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: #454C57;
+            color: #E6E9EE;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 43px);
+            font-weight: 800;
+            color: white;
+        }
+
+        .hero p {
+            color: #D0D4DB;
+            font-size: 16px;
+            margin: 12px auto 0;
+            max-width: 650px;
+            line-height: 1.7;
+        }
+
+        /* MAIN */
+        .main-container {
+            max-width: 1050px;
+        }
+
+        .page-section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 23px;
+            font-weight: 750;
+            color: var(--black);
+            margin-bottom: 7px;
+        }
+
+        .section-desc {
+            color: #737B87;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* BIODATA */
+        .profile-card {
+            background: var(--white);
+            border: 1px solid #E1E4E8;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, .05);
+        }
+
+        .profile-label {
+            color: #7D8795;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .profile-value {
+            color: var(--dark);
+            font-weight: 650;
+            margin-bottom: 18px;
+        }
+
+        .profile-icon {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            background: #E8EAEE;
+            color: #343942;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 42px;
+            margin: 0 auto 15px;
+        }
+
+        .student-badge {
+            display: inline-block;
+            background: #E8EAEE;
+            color: #343942;
+            border-radius: 30px;
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: 650;
+        }
+
+        /* KARTU LATIHAN */
+        .practice-card {
+            display: block;
+            height: 100%;
+            padding: 22px;
+            text-decoration: none;
+            color: var(--dark);
+            background: var(--white);
+            border: 1px solid #E1E4E8;
+            border-radius: 17px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .04);
+            transition: .25s;
+        }
+
+        .practice-card:hover {
+            transform: translateY(-5px);
+            border-color: #AEB6C2;
+            box-shadow: 0 9px 22px rgba(0, 0, 0, .10);
+            color: var(--dark);
+        }
+
+        .practice-number {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #E8EAEE;
+            color: #303640;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 750;
+            margin-bottom: 16px;
+        }
+
+        .practice-card h5 {
+            font-weight: 750;
+            margin-bottom: 6px;
+        }
+
+        .practice-card p {
+            color: #7D8795;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .open-label {
+            display: inline-block;
+            background: #E8EAEE;
+            color: #343942;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 650;
+        }
+
+        /* KALKULATOR */
+        .calculator-card {
+            max-width: 650px;
+            margin: auto;
+            background: var(--white);
+            border: 1px solid #DDE0E5;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 7px 20px rgba(0, 0, 0, .08);
+        }
+
+        .calc-screen {
+            background: linear-gradient(135deg, #252A32, #3C434E);
+            padding: 20px;
+            text-align: right;
+        }
+
+        .calc-screen-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 17px;
+        }
+
+        .mode-btn {
+            background: #E9EBEF;
+            border: none;
+            color: #303640;
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-weight: 700;
+        }
+
+        #display {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: rgba(255,255,255,.95);
+            color: var(--dark);
+            text-align: right;
+            font-size: 27px;
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        #result {
+            min-height: 25px;
+            color: #E0E4EA;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .calc-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            padding: 17px;
+        }
+
+        .calc-buttons button {
+            border: 1px solid #E1E4E8;
+            border-radius: 11px;
+            padding: 13px 3px;
+            background: #F1F2F4;
+            color: #292E36;
+            font-size: 14px;
+            font-weight: 650;
+            transition: .2s;
+        }
+
+        .calc-buttons button:hover {
+            background: #DDE1E7;
+        }
+
+        .calc-buttons .operator {
+            background: #E3E6EB;
+            color: #303A48;
+        }
+
+        .calc-buttons .action {
+            background: #D3D8E0;
+            color: #252A32;
+        }
+
+        .calc-buttons .equal {
+            background: #343B46;
+            color: white;
+            border-color: #343B46;
+        }
+
+        .calc-buttons .equal:hover {
+            background: #17191D;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #22252B;
+            color: #D7DBE2;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 45px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 48px 15px;
+            }
+
+            .profile-card {
+                padding: 20px;
+            }
+
+            .calc-buttons {
+                gap: 6px;
+                padding: 12px;
+            }
+
+            .calc-buttons button {
+                font-size: 12px;
+                padding: 12px 2px;
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-light">
-    <secrition>
-        <section>
-        <a href="lat41.html">Latihan P4-1 </a>
-        <a href="lat42.html">latihan P4-2 </a>
-        <a href="lat43.html">latihan P4-3 </a>
-        <a href="lat44.html">latihan P4-4 </a>
-        <a href="kalkulasi aritmatika.html">praktikum </a>   
-        </section>
+<body>
 
-    <!-- Container -->
-    <div class="container py-5">
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">W. SOPWAN RAMDHANY</a>
+            <span class="nav-info">UTS 2026</span>
+        </div>
+    </nav>
 
-        <!-- Card Biodata -->
-        <div class="card shadow-sm border-0 mx-auto" style="max-width: 500px;">
+    <!-- HEADER -->
+    <header class="hero">
+        <div class="container">
+            <span class="hero-label">UJIAN TENGAH SEMESTER</span>
 
-            <div class="card-body text-center p-4">
+            <h1>UTS Logika Algoritma</h1>
 
-                <!-- Foto Profil -->
-                <div class="mb-3">
-                    <div 
-                        class="bg-primary text-white rounded-circle d-flex 
-                               align-items-center justify-content-center mx-auto"
-                        style="width: 100px; height: 100px; font-size: 40px;"
-                    >
-                        W
+            <p>
+                Perjalanan belajar Logika Algoritma bersama Pa Iin TA 20261
+            </p>
+        </div>
+    </header>
+
+    <main class="container main-container py-5">
+
+        <!-- BIODATA -->
+        <section class="page-section">
+
+            <h3 class="section-title">Identitas Mahasiswa</h3>
+
+            <p class="section-desc">
+                Informasi mahasiswa pemilik website.
+            </p>
+
+            <div class="profile-card">
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-3 text-center mb-4 mb-md-0">
+                        <div class="profile-icon">♙</div>
+
+                        <span class="student-badge">
+                            Mahasiswa Semester 1
+                        </span>
                     </div>
-                </div>
 
-                <!-- Nama -->
-                <h2 class="fw-bold">
-                    Wahdan Sopwan Ramdhany
-                </h2>
-
-                <p class="text-muted mb-4">
-                    Mahasiswa Semester 1
-                </p>
-
-                <!-- Biodata -->
-                <div class="text-start">
-
-                    <div class="mb-3">
-                        <small class="text-muted">Nama Lengkap</small>
-                        <div class="fw-semibold">
+                    <div class="col-md-5">
+                        <div class="profile-label">Nama Lengkap</div>
+                        <div class="profile-value">
                             Wahdan Sopwan Ramdhany
                         </div>
-                    </div>
 
-                    <div class="mb-3">
-                        <small class="text-muted">Program Studi / Kelas</small>
-                        <div class="fw-semibold">
-                            Komputerisasi Akuntansi
+                        <div class="profile-label">NIM</div>
+                        <div class="profile-value">262302017</div>
+
+                        <div class="profile-label">Program Studi</div>
+                        <div class="profile-value">
+                            D3 Komputerisasi Akuntansi
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <small class="text-muted">Semester</small>
-                        <div class="fw-semibold">
-                            Semester 1
-                        </div>
+                    <div class="col-md-4">
+                        <div class="profile-label">Semester</div>
+                        <div class="profile-value">1</div>
+
+                        <div class="profile-label">Perguruan Tinggi</div>
+                        <div class="profile-value">Ma'soem University</div>
+
+                        <div class="profile-label">Mata Kuliah</div>
+                        <div class="profile-value">Logika Algoritma</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- BUKTI PENGERJAAN -->
+        <section class="page-section">
+
+            <h3 class="section-title">Bukti Pengerjaan UTS</h3>
+
+            <p class="section-desc">
+                Pilih salah satu latihan untuk melihat hasil pengerjaan.
+            </p>
+
+            <div class="row g-3">
+
+                <div class="col-6 col-md-3">
+                    <a href="lat41.html" class="practice-card">
+                        <div class="practice-number">01</div>
+                        <h5>P4-1</h5>
+                        <p>Latihan pertama</p>
+                        <span class="open-label">Lihat latihan →</span>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <a href="lat42.html" class="practice-card">
+                        <div class="practice-number">02</div>
+                        <h5>P4-2</h5>
+                        <p>Latihan kedua</p>
+                        <span class="open-label">Lihat latihan →</span>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <a href="lat43.html" class="practice-card">
+                        <div class="practice-number">03</div>
+                        <h5>P4-3</h5>
+                        <p>Latihan ketiga</p>
+                        <span class="open-label">Lihat latihan →</span>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <a href="lat44.html" class="practice-card">
+                        <div class="practice-number">04</div>
+                        <h5>P4-4</h5>
+                        <p>Latihan keempat</p>
+                        <span class="open-label">Lihat latihan →</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SCIENTIFIC CALCULATOR -->
+        <section class="page-section">
+
+            <h3 class="section-title">Scientific Calculator</h3>
+
+            <p class="section-desc">
+                Kalkulator dengan operasi dasar dan fungsi matematika ilmiah.
+            </p>
+
+            <div class="calculator-card">
+
+                <div class="calc-screen">
+
+                    <div class="calc-screen-top">
+                        <span>SCIENTIFIC CALCULATOR</span>
+
+                        <button class="mode-btn" id="angleMode"
+                                onclick="toggleAngle()">
+                            DEG
+                        </button>
+                    </div>
+
+                    <input
+                        type="text"
+                        id="display"
+                        value="0"
+                        aria-label="Layar kalkulator"
+                        autocomplete="off"
+                    >
+
+                    <div id="result">
+                        Hasil akan muncul di sini
                     </div>
 
                 </div>
 
-                <!-- Tombol -->
-                <button class="btn btn-primary w-100 mt-3">
-                    Biodata Saya
-                </button>
+                <div class="calc-buttons">
 
+                    <button class="action" onclick="clearDisplay()">AC</button>
+                    <button class="action" onclick="deleteLast()">DEL</button>
+                    <button class="operator" onclick="insertValue('(')">(</button>
+                    <button class="operator" onclick="insertValue(')')">)</button>
+                    <button class="operator" onclick="insertValue('/')">÷</button>
+
+                    <button class="operator" onclick="insertValue('sin(')">sin</button>
+                    <button class="operator" onclick="insertValue('cos(')">cos</button>
+                    <button class="operator" onclick="insertValue('tan(')">tan</button>
+                    <button class="operator" onclick="insertValue('sqrt(')">√</button>
+                    <button class="operator" onclick="insertValue('*')">×</button>
+
+                    <button class="operator" onclick="insertValue('log(')">log</button>
+                    <button class="operator" onclick="insertValue('ln(')">ln</button>
+                    <button class="operator" onclick="insertValue('^2')">x²</button>
+                    <button class="operator" onclick="insertValue('^')">xʸ</button>
+                    <button class="operator" onclick="insertValue('-')">−</button>
+
+                    <button onclick="insertValue('7')">7</button>
+                    <button onclick="insertValue('8')">8</button>
+                    <button onclick="insertValue('9')">9</button>
+                    <button class="operator" onclick="insertValue('%')">mod</button>
+                    <button class="operator" onclick="insertValue('+')">+</button>
+
+                    <button onclick="insertValue('4')">4</button>
+                    <button onclick="insertValue('5')">5</button>
+                    <button onclick="insertValue('6')">6</button>
+                    <button class="operator" onclick="insertValue('!')">x!</button>
+                    <button class="operator" onclick="insertValue('pi')">π</button>
+
+                    <button onclick="insertValue('1')">1</button>
+                    <button onclick="insertValue('2')">2</button>
+                    <button onclick="insertValue('3')">3</button>
+                    <button class="operator" onclick="insertValue('e')">e</button>
+                    <button class="operator" onclick="insertValue('.')">.</button>
+
+                    <button onclick="insertValue('0')">0</button>
+                    <button onclick="insertValue('00')">00</button>
+                    <button class="operator" onclick="insertValue('-')">+/−</button>
+                    <button class="equal" style="grid-column: span 2;"
+                            onclick="calculate()">=</button>
+
+                </div>
             </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <strong>Wahdan Sopwan Ramdhany - NIM. 262302017</strong>
+        <div class="small mt-1">
+            UTS Logika Algoritma | Ma'soem University
         </div>
+    </footer>
 
-    </div>
+    <!-- JAVASCRIPT KALKULATOR -->
+    <script>
+        const display = document.getElementById("display");
+        const result = document.getElementById("result");
+        const angleMode = document.getElementById("angleMode");
 
-    <!-- Bootstrap JS CDN -->
-    <script 
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
+        let isDegree = true;
 
-</body>
-</html>
+        function insertValue(value) {
+            if (display.value === "0" || display.value === "Error") {
+                display.value = value;
+            } else {
+                display.value += value;
+            }
+
+            result.textContent = "Siap dihitung";
+        }
+
+        function clearDisplay() {
+            display.value = "0";
+            result.textContent = "Hasil akan muncul di sini";
+        }
+
+        function deleteLast() {
+            display.value = display.value.slice(0, -1) || "0";
+        }
+
+        function toggleAngle() {
+            isDegree = !isDegree;
+            angleMode.textContent = isDegree ? "DEG" : "RAD";
+        }
+
+        function factorial(n) {
+            if (!Number.isInteger(n) || n < 0 || n > 170) {
+                throw new Error(
+                    "Faktorial hanya untuk bilangan bulat 0–170."
+                );
+            }
+
+            let answer = 1;
+
+            for (let i = 2; i <= n; i++) {
+                answer *= i;
+            }
+
+            return answer;
+        }
+
+        function evaluateExpression(expression) {
+            const tokens = [];
+            const pattern =
+                /\s*([0-9]*\.?[0-9]+(?:e[+-]?\d+)?|[a-zA-Z]+|[+\-*/%^(),!])/gy;
+
+            let position = 0;
+
+            while (position < expression.length) {
+                pattern.lastIndex = position;
+                const match = pattern.exec(expression);
+
+                if (!match) {
+                    throw new Error("Ada karakter yang tidak dikenali.");
+                }
+
+                tokens.push(match[1]);
+                position = pattern.lastIndex;
+            }
+
+            let index = 0;
+
+            function peek() {
+                return tokens[index];
+            }
+
+            function take() {
+                return tokens[index++];
+            }
+
+            function parseExpression() {
+                let value = parseTerm();
+
+                while (peek() === "+" || peek() === "-") {
+                    const operator = take();
+                    const right = parseTerm();
+
+                    value = operator === "+"
+                        ? value + right
+                        : value - right;
+                }
+
+                return value;
+            }
+
+            function parseTerm() {
+                let value = parseUnary();
+
+                while (["*", "/", "%"].includes(peek())) {
+                    const operator = take();
+                    const right = parseUnary();
+
+                    if (
+                        (operator === "/" || operator === "%") &&
+                        right === 0
+                    ) {
+                        throw new Error("Tidak bisa membagi dengan nol.");
+                    }
+
+                    if (operator === "*") value *= right;
+                    if (operator === "/") value /= right;
+                    if (operator === "%") value %= right;
+                }
+
+                return value;
+            }
+
+            function parseUnary() {
